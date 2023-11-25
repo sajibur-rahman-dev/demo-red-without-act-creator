@@ -2,7 +2,7 @@ import { RouteType } from "./type.ts";
 import { ROUTES } from "../../constants/routes";
 import { Layout, Home, About, NotMatch } from "../../containers";
 
-const { HOME } = ROUTES;
+const { HOME, ABOUT } = ROUTES;
 
 export const Routes: RouteType[] = [
   {
@@ -24,7 +24,7 @@ export const Routes: RouteType[] = [
       },
       {
         id: "2.2",
-        path: "/about",
+        path: ABOUT,
         element: <About />,
         redirection: <NotMatch />,
       },
