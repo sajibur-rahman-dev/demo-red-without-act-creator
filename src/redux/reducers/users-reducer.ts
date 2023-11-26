@@ -42,5 +42,8 @@ export default function UsersReducer(
         getSuccess: true,
         getData: payload,
       };
+
+    default:
+      return state;
   }
 }
