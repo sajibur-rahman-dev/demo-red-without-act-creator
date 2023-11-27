@@ -10,18 +10,14 @@ interface UseUsersPropType {
 const useUsers = (): UseUsersPropType => {
   const { fetchUsers } = useActionCreator();
 
-  const usersState = useCustomSelector((store) => store);
-
-  console.log("usersState :", usersState);
-
-  console.log("usersState :", usersState);
+  const usersState = useCustomSelector((store) => store.users);
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
   return {
-    usersState: usersState.users || null,
+    usersState: usersState || null,
   };
 };
 

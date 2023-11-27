@@ -2,24 +2,25 @@
 
 import { ReduxRequest } from "./redux-request";
 import { UsersResponseType } from "../../../types/users";
+import { USERS_ACTION_Type } from "../../actions/users/types";
 
 export type ErrorResponse = any;
 
 export interface UsersState extends ReduxRequest<UsersResponseType | null> {}
 
-export type GET_LOADING = {
-  type: "USERS_GET_LOADING";
+export interface GET_LOADING {
+  type: USERS_ACTION_Type.LOADING;
   payload: true;
-};
+}
 
-export type GET_ERROR = {
-  type: "USERS_GET_ERROR";
+export interface GET_ERROR {
+  type: USERS_ACTION_Type.ERROR;
   payload: ErrorResponse;
-};
+}
 
-export type GET_SUCCESS = {
-  type: "USERS_GET_SUCCESS";
+export interface GET_SUCCESS {
+  type: USERS_ACTION_Type.SUCCESS;
   payload: UsersResponseType;
-};
+}
 
 export type UsersActionState = GET_LOADING | GET_ERROR | GET_SUCCESS;

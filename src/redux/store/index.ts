@@ -3,7 +3,9 @@ import rootReducer from "../reducers";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import { middleware } from "../middlewares";
 
-const configureStore = (initialState?: ReturnType<typeof rootReducer>) => {
+export type rootState = ReturnType<typeof rootReducer>;
+
+const configureStore = (initialState?: rootState) => {
   const store = createStore(
     rootReducer,
     initialState,

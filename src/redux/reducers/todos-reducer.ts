@@ -1,8 +1,7 @@
-import { USERS_ACTION_Type } from "../actions/users/types";
+import { GET_TODOS } from "../actions/todos/type";
+import { TodosActionState, TodosState } from "./types/todos-state";
 
-import { UsersState, UsersActionState } from "./types/users-state";
-
-const initialState: UsersState = {
+const initialState: TodosState = {
   isGetLoading: false,
 
   getError: null,
@@ -12,21 +11,22 @@ const initialState: UsersState = {
   getData: null,
 };
 
-export default function UsersReducer(
-  state: UsersState = initialState,
-  action: UsersActionState
+export default function TodosReducer(
+  state = initialState,
+  action: TodosActionState
 ) {
   const { type, payload } = action;
 
   switch (type) {
-    case USERS_ACTION_Type.LOADING:
+    case GET_TODOS.LOADING:
       return {
         ...state,
         isGetLoading: payload,
         getError: null,
         getSuccess: false,
       };
-    case USERS_ACTION_Type.ERROR:
+
+    case GET_TODOS.ERROR:
       return {
         ...state,
         isGetLoading: false,
@@ -34,7 +34,7 @@ export default function UsersReducer(
         getSuccess: false,
       };
 
-    case USERS_ACTION_Type.SUCCESS:
+    case GET_TODOS.SUCCESS:
       return {
         ...state,
         isGetLoading: false,
